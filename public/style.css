@@ -1,0 +1,137 @@
+@font-face {
+    font-family: RobotoMedium;
+    src: url('./DMSans-Medium.ttf');
+  }
+
+  @font-face {
+    font-family: RobotoItalic;
+    src: url('./DMSans-Italic.ttf');
+  }
+
+  @font-face {
+    font-family: RobotoBold;
+    src: url('./DMSans-Bold.ttf');
+  }
+
+  body {
+    font-family: RobotoMedium;
+    color: dimgrey;
+    user-select: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    font-size: 14px;
+  }
+
+  main {
+    max-width: 500px;
+    margin: 20px auto;
+    padding: 20px 10px;
+  }
+
+  .name {
+    font-family: RobotoBold;
+    color: black;
+  }
+
+  .who {
+    font-size: 20px;
+    margin-bottom: 20px;
+  }
+
+  .welcome {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-left: 2px solid royalblue;
+  }
+
+  .my-img {
+    width: 120px;
+    ;
+    object-fit: cover;
+    border-radius: 50px;
+    margin-right: 10px;
+  }
+
+  .italic {
+    font-family: RobotoItalic;
+
+    font-weight: 600;
+  }
+
+
+  .subheads {
+    font-size: 18px;
+    font-family: RobotoBold;
+    color: black;
+    margin-top: 25px;
+    margin-bottom: 15px;
+  }
+
+  footer {
+    width: 100%;
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .copyright {
+    font-size: 12px;
+  }
+
+  a {
+    text-decoration: none;
+    color: #4D5BEB;
+  }
+
+
+  .fact {
+    font-size: 15px;
+    margin: 10px 0;
+  }
+  .loader {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    background: white;
+    z-index: 1;
+  }
+  
+  .load-icon {
+    width: 30px;
+    object-fit: cover;
+  }
+  
+  .loader-img {
+    animation: spinner 1s  linear infinite;
+  }
+  
+  .wait {
+    font-family: RobotoBold;
+  }
+  
+  @keyframes spinner {
+    0% {
+      transform: rotate(0deg);
+    } 100% {
+      transform: rotate(360deg);
+    }
+  }
+  
+  .tag {
+    font-family: RobotoBold;
+    color: black;
+  }
+  
+ #contents {
+   display: none;
+ }
+  
