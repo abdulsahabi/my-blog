@@ -1,0 +1,3 @@
+RewriteEngine On
+RewriteRule ^sitemap\.xml$ /generate_sitemap.php [L]
+ErrorDocument 404 /404.php
