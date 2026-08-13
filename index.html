@@ -12,7 +12,7 @@
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Source+Serif+4:ital,wght@0,400;1,400&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Source+Serif+4:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
 
 <style>
   :root{
@@ -42,7 +42,7 @@
   }
   ::selection{background:var(--blueprint); color:var(--paper-off);}
   a{color:inherit;}
-  .mono{font-family:'IBM Plex Mono', monospace;}
+  .mono{font-family:ui-monospace, SFMono-Regular, 'JetBrains Mono', Menlo, Consolas, monospace;}
   .display{font-family:'Space Grotesk', sans-serif;}
 
   .wrap{max-width:920px; margin:0 auto; padding:0 28px;}
@@ -65,7 +65,7 @@
   nav .logo span{color:var(--blueprint);}
   nav ul{display:flex; align-items:center; gap:26px; list-style:none;}
   nav a{
-    font-family:'IBM Plex Mono',monospace; font-size:12px; text-decoration:none;
+    font-family:ui-monospace, SFMono-Regular, 'JetBrains Mono', Menlo, Consolas, monospace; font-size:12px; text-decoration:none;
     text-transform:uppercase; letter-spacing:0.08em; color:var(--slate);
     transition:color .15s;
   }
@@ -132,7 +132,7 @@
   .crop.br{bottom:20px; right:20px; border-left:none; border-top:none;}
 
   .eyebrow{
-    font-family:'IBM Plex Mono',monospace; font-size:12px; letter-spacing:0.14em;
+    font-family:ui-monospace, SFMono-Regular, 'JetBrains Mono', Menlo, Consolas, monospace; font-size:12px; letter-spacing:0.14em;
     text-transform:uppercase; color:#9fb0e8; display:flex; align-items:center; gap:8px;
     margin-bottom:22px;
   }
@@ -154,7 +154,7 @@
     padding-top:22px;
     display:grid; grid-template-columns:repeat(3,1fr); gap:18px;
   }
-  .readout div{font-family:'IBM Plex Mono',monospace; font-size:12px; color:#8890a8;}
+  .readout div{font-family:ui-monospace, SFMono-Regular, 'JetBrains Mono', Menlo, Consolas, monospace; font-size:12px; color:#8890a8;}
   .readout div b{
     display:block; font-family:'Space Grotesk',sans-serif; font-size:22px; font-weight:600;
     color:var(--paper-off); margin-bottom:4px;
@@ -169,32 +169,33 @@
     border:1px solid var(--line); background:var(--paper-2);
   }
   .portrait::before{
-    content:''; position:absolute; inset:0;
-    background:linear-gradient(100deg, var(--paper-2) 30%, #eeece3 50%, var(--paper-2) 70%);
-    background-size:200% 100%;
-    animation:shimmer 1.4s ease-in-out infinite;
-    opacity:1; transition:opacity .3s ease;
+    content:''; position:absolute; inset:0; overflow:hidden;
+    background:var(--paper-2);
   }
-  .portrait.loaded::before{opacity:0; animation:none; pointer-events:none;}
+  .portrait::after{
+    content:''; position:absolute; top:0; bottom:0; left:-60%; width:60%;
+    background:linear-gradient(90deg, transparent, rgba(255,255,255,0.55), transparent);
+    animation:shimmer 1.3s ease-in-out infinite;
+    will-change:transform;
+    z-index:1;
+  }
+  .portrait.loaded::before, .portrait.loaded::after{display:none;}
   @keyframes shimmer{
-    0%{background-position:200% 0;}
-    100%{background-position:-200% 0;}
+    0%{transform:translateX(0);}
+    100%{transform:translateX(260%);}
   }
   .portrait img{
     width:100%; height:100%; object-fit:cover; display:block;
     filter:grayscale(1) contrast(1.08);
-    position:relative; z-index:1;
+    position:relative; z-index:0;
     opacity:0; transition:opacity .35s ease;
   }
   .portrait.loaded img{opacity:1;}
-  .portrait::after{
-    content:''; position:absolute; inset:0;
-    box-shadow:inset 0 0 0 1px rgba(0,0,0,0.06);
-  }
+  .portrait{box-shadow:inset 0 0 0 1px rgba(0,0,0,0.06);}
   .portrait .cap{
     position:absolute; bottom:0; left:0; right:0; z-index:2;
     background:rgba(17,26,61,0.85); color:var(--paper-off);
-    font-family:'IBM Plex Mono',monospace; font-size:10px; letter-spacing:0.06em;
+    font-family:ui-monospace, SFMono-Regular, 'JetBrains Mono', Menlo, Consolas, monospace; font-size:10px; letter-spacing:0.06em;
     text-transform:uppercase; padding:6px 8px;
   }
   .about-text p{margin-bottom:14px; max-width:560px;}
@@ -207,7 +208,7 @@
     font-family:'Space Grotesk',sans-serif; font-weight:600; font-size:26px;
   }
   .section-head .tag{
-    font-family:'IBM Plex Mono',monospace; font-size:12px; color:var(--slate);
+    font-family:ui-monospace, SFMono-Regular, 'JetBrains Mono', Menlo, Consolas, monospace; font-size:12px; color:var(--slate);
     text-transform:uppercase; letter-spacing:0.08em;
   }
 
@@ -223,10 +224,10 @@
   .role-top{display:flex; align-items:flex-start; justify-content:space-between; gap:16px; flex-wrap:wrap;}
   .role-top h3{font-family:'Space Grotesk',sans-serif; font-size:20px; font-weight:600;}
   .role-top .co{
-    font-family:'IBM Plex Mono',monospace; font-size:13px; color:var(--blueprint); margin-top:4px;
+    font-family:ui-monospace, SFMono-Regular, 'JetBrains Mono', Menlo, Consolas, monospace; font-size:13px; color:var(--blueprint); margin-top:4px;
   }
   .role-top .dates{
-    font-family:'IBM Plex Mono',monospace; font-size:12px; color:var(--slate); white-space:nowrap;
+    font-family:ui-monospace, SFMono-Regular, 'JetBrains Mono', Menlo, Consolas, monospace; font-size:12px; color:var(--slate); white-space:nowrap;
   }
   .role-card ul{margin-top:16px; padding-left:18px; color:#33353f; font-size:15.5px;}
   .role-card li{margin-bottom:8px;}
@@ -244,10 +245,10 @@
   }
   .sys.in{opacity:1; transform:translateY(0);}
   .sys-top{display:flex; align-items:flex-start; justify-content:space-between; gap:16px; flex-wrap:wrap;}
-  .sys-id{font-family:'IBM Plex Mono',monospace; font-size:12px; color:var(--blueprint); letter-spacing:0.06em;}
+  .sys-id{font-family:ui-monospace, SFMono-Regular, 'JetBrains Mono', Menlo, Consolas, monospace; font-size:12px; color:var(--blueprint); letter-spacing:0.06em;}
   .sys h3{font-family:'Space Grotesk',sans-serif; font-size:19px; font-weight:600; margin-top:4px;}
   .status{
-    font-family:'IBM Plex Mono',monospace; font-size:11px; text-transform:uppercase;
+    font-family:ui-monospace, SFMono-Regular, 'JetBrains Mono', Menlo, Consolas, monospace; font-size:11px; text-transform:uppercase;
     letter-spacing:0.08em; padding:4px 9px; border:1px solid currentColor; white-space:nowrap;
   }
   .status.shipped{color:var(--blueprint);}
@@ -255,11 +256,11 @@
   .sys p{margin-top:12px; color:#33353f; font-size:15.5px; max-width:620px;}
   .stack-row{margin-top:14px; display:flex; flex-wrap:wrap; gap:8px;}
   .chip{
-    font-family:'IBM Plex Mono',monospace; font-size:11px; color:var(--slate);
+    font-family:ui-monospace, SFMono-Regular, 'JetBrains Mono', Menlo, Consolas, monospace; font-size:11px; color:var(--slate);
     border:1px solid var(--line); padding:3px 8px; background:var(--paper);
   }
   .more-note{
-    font-family:'IBM Plex Mono',monospace; font-size:13px; color:var(--slate);
+    font-family:ui-monospace, SFMono-Regular, 'JetBrains Mono', Menlo, Consolas, monospace; font-size:13px; color:var(--slate);
     margin-top:22px; padding-top:18px; border-top:1px dashed var(--line);
   }
   .more-note a{color:var(--blueprint); text-decoration:none; border-bottom:1px solid currentColor;}
@@ -269,12 +270,12 @@
     display:grid; grid-template-columns:repeat(2,1fr); gap:28px 40px;
   }
   .stack-col .k{
-    font-family:'IBM Plex Mono',monospace; font-size:12px; text-transform:uppercase;
+    font-family:ui-monospace, SFMono-Regular, 'JetBrains Mono', Menlo, Consolas, monospace; font-size:12px; text-transform:uppercase;
     letter-spacing:0.08em; color:var(--copper); margin-bottom:10px;
   }
   .stack-col ul{list-style:none;}
   .stack-col li{
-    font-family:'Space Grotesk',sans-serif; font-size:16px; padding:7px 0;
+    font-family:'Space Grotesk',sans-serif; font-weight:500; font-size:16px; padding:7px 0;
     border-bottom:1px solid var(--line);
   }
 
@@ -282,7 +283,7 @@
   .principles{display:grid; gap:22px;}
   .principle{display:flex; gap:18px;}
   .principle .n{
-    font-family:'IBM Plex Mono',monospace; font-size:13px; color:var(--blueprint);
+    font-family:ui-monospace, SFMono-Regular, 'JetBrains Mono', Menlo, Consolas, monospace; font-size:13px; color:var(--blueprint);
     padding-top:3px; width:34px; flex-shrink:0;
   }
   .principle p{font-size:16.5px; max-width:600px;}
@@ -300,13 +301,13 @@
     margin-top:36px; display:grid; grid-template-columns:repeat(4,1fr); gap:24px;
     border-top:1px solid rgba(233,232,225,0.18); padding-top:28px;
   }
-  .contact-grid .k{font-family:'IBM Plex Mono',monospace; font-size:11px; text-transform:uppercase; letter-spacing:0.08em; color:#8890a8; margin-bottom:6px;}
+  .contact-grid .k{font-family:ui-monospace, SFMono-Regular, 'JetBrains Mono', Menlo, Consolas, monospace; font-size:11px; text-transform:uppercase; letter-spacing:0.08em; color:#8890a8; margin-bottom:6px;}
   .contact-grid a, .contact-grid span{font-family:'Space Grotesk',sans-serif; font-size:16px; text-decoration:none; color:var(--paper-off);}
   .contact-grid a:hover{color:#8fa4ea;}
   .foot-bottom{
     margin-top:48px; padding-top:20px; border-top:1px solid rgba(233,232,225,0.18);
     display:flex; justify-content:space-between; flex-wrap:wrap; gap:10px;
-    font-family:'IBM Plex Mono',monospace; font-size:12px; color:#6d7590;
+    font-family:ui-monospace, SFMono-Regular, 'JetBrains Mono', Menlo, Consolas, monospace; font-size:12px; color:#6d7590;
   }
 
   @media (max-width:760px){
@@ -434,12 +435,4 @@
 
       <div class="sys"><div class="sys-top"><div><div class="sys-id">SYS-003</div><h3>ASTMS — Timetable Management System</h3></div><span class="status shipped">Shipped</span></div>
         <p>University timetable system that treats scheduling as a constraint satisfaction problem, resolving room and lecturer clashes automatically. Built for AFUST Aleiro.</p>
-        <div class="stack-row"><span class="chip">PHP</span><span class="chip">MySQL</span><span class="chip">CSP</span></div></div>
-
-      <div class="sys"><div class="sys-top"><div><div class="sys-id">SYS-004</div><h3>IntelliSummarize</h3></div><span class="status shipped">Shipped</span></div>
-        <p>AI text summarization tool built as a final-year research project, condensing long-form text using a Python/Flask backend.</p>
-        <div class="stack-row"><span class="chip">Python</span><span class="chip">Flask</span><span class="chip">NLP</span></div></div>
-
-      <div class="sys"><div class="sys-top"><div><div class="sys-id">SYS-005</div><h3>Fake News / Clickbait Detector</h3></div><span class="status shipped">Shipped</span></div>
-        <p>Classification system that flags misleading headlines and clickbait patterns in news text.</p>
-        <div class="stack-row"><span class=
+        <div class="stack-row"><span class="chip">PHP</span><span class="chip">MySQL</span><spa
