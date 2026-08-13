@@ -12,7 +12,7 @@
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Source+Serif+4:ital,wght@0,400;0,500;1,400&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Source+Serif+4:ital,wght@0,400;1,400&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
 
 <style>
   :root{
@@ -28,8 +28,8 @@
     --line-dark:#2a3466;
     --paper-off:#f5f4ee;
   }
-  *{box-sizing:border-box; margin:0; padding:0;}
-  html{scroll-behavior:smooth;}
+  *{box-sizing:border-box; margin:0; padding:0; max-width:100%;}
+  html{scroll-behavior:smooth; overflow-x:hidden; width:100%;}
   body{
     background:var(--paper);
     color:var(--ink);
@@ -37,6 +37,8 @@
     font-size:17px;
     line-height:1.6;
     -webkit-font-smoothing:antialiased;
+    overflow-x:hidden;
+    width:100%;
   }
   ::selection{background:var(--blueprint); color:var(--paper-off);}
   a{color:inherit;}
@@ -47,16 +49,19 @@
 
   /* -------- nav -------- */
   nav{
-    position:sticky; top:0; z-index:50;
+    position:sticky; top:0; z-index:100;
     background:rgba(233,232,225,0.92);
     backdrop-filter:blur(6px);
     border-bottom:1px solid var(--line);
   }
   nav .wrap{
     display:flex; align-items:center; justify-content:space-between;
-    height:56px;
+    height:56px; gap:12px;
   }
-  nav .logo{font-family:'Space Grotesk',sans-serif; font-weight:700; font-size:15px; letter-spacing:0.02em;}
+  nav .logo{
+    font-family:'Space Grotesk',sans-serif; font-weight:700; font-size:14px; letter-spacing:0.01em;
+    white-space:nowrap; overflow:hidden; text-overflow:ellipsis; min-width:0; flex-shrink:1;
+  }
   nav .logo span{color:var(--blueprint);}
   nav ul{display:flex; align-items:center; gap:26px; list-style:none;}
   nav a{
@@ -70,11 +75,12 @@
 
   .menu-btn{
     display:none; flex-direction:column; justify-content:center; align-items:center;
-    gap:5px; width:36px; height:36px; background:none; border:1px solid var(--line);
-    cursor:pointer; padding:0;
+    gap:5px; width:40px; height:40px; background:none; border:1px solid var(--line);
+    cursor:pointer; padding:0; flex-shrink:0; position:relative; z-index:110;
+    -webkit-tap-highlight-color:transparent; touch-action:manipulation;
   }
   .menu-btn span{
-    display:block; width:16px; height:1.5px; background:var(--ink); transition:transform .2s, opacity .2s;
+    display:block; width:16px; height:1.5px; background:var(--ink); transition:transform .18s, opacity .18s;
   }
   .menu-btn[aria-expanded="true"] span:nth-child(1){transform:translateY(6.5px) rotate(45deg);}
   .menu-btn[aria-expanded="true"] span:nth-child(2){opacity:0;}
@@ -82,17 +88,17 @@
 
   .scrim{
     display:none; position:fixed; inset:0; background:rgba(12,19,48,0.45);
-    z-index:59; opacity:0; transition:opacity .25s ease;
+    z-index:90; opacity:0; transition:opacity .2s ease;
   }
   .scrim.show{display:block; opacity:1;}
 
   @media (max-width:760px){
     nav ul{
       position:fixed; top:0; right:0; height:100vh; width:min(78vw, 300px);
-      background:var(--paper-off); z-index:60;
+      background:var(--paper-off); z-index:105;
       flex-direction:column; align-items:flex-start; justify-content:flex-start;
       gap:0; padding:80px 28px 28px;
-      transform:translateX(100%); transition:transform .28s ease;
+      transform:translateX(100%); transition:transform .22s ease;
       box-shadow:-8px 0 24px rgba(0,0,0,0.12);
       border-left:1px solid var(--line);
     }
@@ -162,16 +168,31 @@
     position:relative; aspect-ratio:4/5; overflow:hidden;
     border:1px solid var(--line); background:var(--paper-2);
   }
+  .portrait::before{
+    content:''; position:absolute; inset:0;
+    background:linear-gradient(100deg, var(--paper-2) 30%, #eeece3 50%, var(--paper-2) 70%);
+    background-size:200% 100%;
+    animation:shimmer 1.4s ease-in-out infinite;
+    opacity:1; transition:opacity .3s ease;
+  }
+  .portrait.loaded::before{opacity:0; animation:none; pointer-events:none;}
+  @keyframes shimmer{
+    0%{background-position:200% 0;}
+    100%{background-position:-200% 0;}
+  }
   .portrait img{
     width:100%; height:100%; object-fit:cover; display:block;
     filter:grayscale(1) contrast(1.08);
+    position:relative; z-index:1;
+    opacity:0; transition:opacity .35s ease;
   }
+  .portrait.loaded img{opacity:1;}
   .portrait::after{
     content:''; position:absolute; inset:0;
     box-shadow:inset 0 0 0 1px rgba(0,0,0,0.06);
   }
   .portrait .cap{
-    position:absolute; bottom:0; left:0; right:0;
+    position:absolute; bottom:0; left:0; right:0; z-index:2;
     background:rgba(17,26,61,0.85); color:var(--paper-off);
     font-family:'IBM Plex Mono',monospace; font-size:10px; letter-spacing:0.06em;
     text-transform:uppercase; padding:6px 8px;
@@ -309,7 +330,7 @@
       <li><a href="#work">Work</a></li>
       <li><a href="#stack">Stack</a></li>
       <li><a href="#contact">Contact</a></li>
-      <li><a href="./resume.pdf" download class="resume-link">Résumé ↓</a></li>
+      <li><a href="public/My%20updated%20CV.pdf" download class="resume-link">Résumé ↓</a></li>
     </ul>
     <button class="menu-btn" id="menu-btn" aria-label="Toggle menu" aria-expanded="false" aria-controls="nav-list">
       <span></span><span></span><span></span>
@@ -336,8 +357,8 @@
 <section id="about">
   <div class="wrap">
     <div class="about">
-      <div class="portrait">
-        <img src="public/1691749090501.jpg" alt="Portrait of Sahabi Abdulrahaman" />
+      <div class="portrait" id="portrait">
+        <img src="public/1691749090501-1.jpg" width="480" height="640" alt="Portrait of Sahabi Abdulrahaman" id="portrait-img" loading="eager" fetchpriority="high" decoding="async" />
         <div class="cap">Kebbi State, NG</div>
       </div>
       <div class="about-text">
@@ -393,23 +414,4 @@
 
       <div class="sys"><div class="sys-top"><div><div class="sys-id">SYS-009</div><h3>Private Cloud Storage System</h3></div><span class="status shipped">Shipped</span></div>
         <p>Self-hosted file storage system with AES encryption for files at rest.</p>
-        <div class="stack-row"><span class="chip">PHP</span><span class="chip">MySQL</span><span class="chip">AES</span></div></div>
-
-      <div class="sys"><div class="sys-top"><div><div class="sys-id">SYS-010</div><h3>InoGr Works</h3></div><span class="status shipped">Live</span></div>
-        <p>Full-stack platform launched in 2026 under my own studio, InoGr Technologies, based in Kebbi State, Nigeria.</p>
-        <div class="stack-row"><span class="chip">PHP</span><span class="chip">MySQL</span></div></div>
-
-    </div>
-
-    <div class="more-note">+ several more systems (clinic management, asset tracking, alumni mentorship, fee payment) built for FUBK, WUFPBK and AFUSTA — full list on <a href="https://github.com/abdulsahabi" target="_blank" rel="noopener">GitHub</a>.</div>
-  </div>
-</section>
-
-<section id="stack" style="background:var(--paper-2);">
-  <div class="wrap">
-    <div class="section-head">
-      <h2>Stack</h2>
-      <span class="tag">What I build with</span>
-    </div>
-    <div class="stack-grid">
-      <div class="st
+        <div class="st
