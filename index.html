@@ -1,172 +1,391 @@
 <!doctype html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <meta
-            name="google-site-verification"
-            content="w9ebuEH-nIriGX835OaVJNGYVlR0whkIzWMny7b5bDA"
-        />
-        <link
-            rel="shortcut icon"
-            href="/public/favicon.ico"
-            type="image/x-icon"
-        />
-        <link rel="icon" href="/public/favicon.ico" type="image/x-icon" />
-        <title>Abdul Sahabi Personal Page</title>
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Sahabi Abdulrahaman — Software Engineer</title>
+<meta name="description" content="Sahabi Abdulrahaman is a software engineer based in Kebbi State, Nigeria, building production systems for banks, hospitals, schools and government offices." />
+<meta name="author" content="Sahabi Abdulrahaman" />
+<meta property="og:title" content="Sahabi Abdulrahaman — Software Engineer" />
+<meta property="og:description" content="Full-stack systems for banks, hospitals, schools and government offices. PHP, Laravel, Python/Flask, React Native." />
+<meta property="og:type" content="website" />
 
-        <link rel="stylesheet" href="./public/style.css" />
-        <meta
-            name="description"
-            content="Welcome to the official personal webpage of Sahabi Abdulrahaman, a passionate software engineer and machine learning researcher. Learn about my academic journey, tech skills, and personal interests."
-        />
-        <meta
-            name="keywords"
-            content="Sahabi Abdulrahaman, Software Engineer, Machine Learning, Open Source, Computer Science, Tc Studio, WUFPBK, Personal Blog, Sahabi Abdul, Abdul Sahabi, Avdhultc, Abdul tc"
-        />
-        <meta name="author" content="Abdulrahaman Sahabi" />
-        <meta property="og:title" content="Abdul Sahabi Personal Page" />
-        <meta
-            property="og:description"
-            content="Official personal webpage of Sahabi Abdulrahaman, software engineer and machine learning enthusiast."
-        />
-        <meta property="og:image" content="/public/1691749090501.jpg" />
-        <meta property="og:url" content="https://abdulsahabi.com.ng" />
-        <meta property="og:type" content="website" />
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="Abdul Sahabi Personal Page" />
-        <meta
-            name="twitter:description"
-            content="Personal webpage of Sahabi Abdulrahaman, a software engineer and machine learning researcher."
-        />
-        <meta name="twitter:image" content="/public/1691749090501.jpg" />
-    </head>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Source+Serif+4:ital,wght@0,400;0,500;1,400&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
 
-    <body>
-        <main>
-            <div class="who">
-                Who Am I? (<b>Hint</b>: Not a Superhero, Just
-                <span class="name">Sahabi Abdulrahaman</span>)
-            </div>
+<style>
+  :root{
+    --ink:#14161d;
+    --paper:#e9e8e1;
+    --paper-2:#e2e0d7;
+    --blueprint:#2444b0;
+    --blueprint-deep:#111a3d;
+    --blueprint-deep-2:#0c1330;
+    --copper:#a85e22;
+    --slate:#5c5f6a;
+    --line:#c9c6b9;
+    --line-dark:#2a3466;
+    --paper-off:#f5f4ee;
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    background:var(--paper);
+    color:var(--ink);
+    font-family:'Source Serif 4', Georgia, serif;
+    font-size:17px;
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+  ::selection{background:var(--blueprint); color:var(--paper-off);}
+  a{color:inherit;}
+  .mono{font-family:'IBM Plex Mono', monospace;}
+  .display{font-family:'Space Grotesk', sans-serif;}
 
-            <div class="welcome">
-                <img
-                    src="./public/1691749090501.jpg"
-                    alt="My Image"
-                    class="my-img"
-                />
-                <div>
-                    Welcome to my official personal webpage. Yes, I am
-                    <span class="name">Sahabi Abdulrahaman</span>. Please pardon
-                    me for mentioning it again, but feel like insisted on it. :)
-                </div>
-            </div>
-            <div class="about-me subheads">A Little More About Me:</div>
-            <p>
-                I studied computer science at the prestigious
-                <a href="https://wufpbk.edu.ng/index/"
-                    ><span class="italic"
-                        >Waziri Umaru Federal Polytechnic, Birnin Kebbi
-                        (WUFPBK), Kebbi state, Nigeria</span
-                    ></a
-                >. Since I was young, I’ve been passionate about becoming a
-                <a href="https://en.m.wikipedia.org/wiki/Software_engineering"
-                    ><span class="italic">software engineer</span></a
-                >
-                and a
-                <a href="https://en.m.wikipedia.org/wiki/Machine_learning"
-                    ><span class="italic">machine learning (ML)</span></a
-                >
-                researcher. My love for
-                <span class="italic">computers</span> started when I realized
-                they could solve problems faster than I could finish a cooking
-                rice (which, trust me, is fast).
-            </p>
+  .wrap{max-width:920px; margin:0 auto; padding:0 28px;}
 
-            <div id="content">
-                <div class="subheads">My Academic Journey:</div>
-                <p>
-                    Studying at
-                    <a href="https://wufpbk.edu.ng/index/"
-                        ><span class="italic">WUFPBK</span></a
-                    >
-                    was one of my dreams, even though by the time I gained
-                    admission, they hadn't yet offered a
-                    <a
-                        href="https://en.m.wikipedia.org/wiki/Software_engineering"
-                        ><span class="italic">software engineer</span></a
-                    >
-                    program. I’m thrilled to have achieved it by completing my
-                    National Diploma (ND) in
-                    <a href="https://en.m.wikipedia.org/wiki/Computer_science"
-                        ><span class="italic">computer science </span></a
-                    >
-                    in just two years, from 2021 to 2023. It was a rollercoaster
-                    ride of theory, coding, problem solving, and challenges, but
-                    I made it through! it's all memories now. Alhamdu lillaah.
-                </p>
+  /* -------- nav -------- */
+  nav{
+    position:sticky; top:0; z-index:50;
+    background:rgba(233,232,225,0.92);
+    backdrop-filter:blur(6px);
+    border-bottom:1px solid var(--line);
+  }
+  nav .wrap{
+    display:flex; align-items:center; justify-content:space-between;
+    height:56px;
+  }
+  nav .logo{font-family:'Space Grotesk',sans-serif; font-weight:700; font-size:15px; letter-spacing:0.02em;}
+  nav .logo span{color:var(--blueprint);}
+  nav ul{display:flex; gap:26px; list-style:none;}
+  nav a{
+    font-family:'IBM Plex Mono',monospace; font-size:12px; text-decoration:none;
+    text-transform:uppercase; letter-spacing:0.08em; color:var(--slate);
+    transition:color .15s;
+  }
+  nav a:hover{color:var(--blueprint);}
+  nav a.resume-link{color:var(--blueprint); border:1px solid var(--blueprint); padding:5px 10px;}
+  nav a.resume-link:hover{background:var(--blueprint); color:var(--paper-off);}
 
-                <div class="subheads">Fun Facts About Me: Tech-Related</div>
-                <ul>
-                    <li class="fact">
-                        Many programmers I know, either in person or through
-                        reading about them, they can stay up all night debugging
-                        code. They call it "midnight magic." As for me, I prefer
-                        debugging code during daylight hours.
-                    </li>
-                    <li class="fact">
-                        I like adopting learning new technologies as quickly as
-                        possible. I've experienced this many times when I'm
-                        exploring new libraries for a every programming language
-                        I work with. Every single day, more than 100 libraries
-                        are published, which has significant impact on solving
-                        today's complex problems. Historically, software
-                        engineers have always needed to be adoptable and eager
-                        to learn.
-                    </li>
-                    <li class="fact">
-                        Exploring
-                        <a href="https://en.m.wikipedia.org/wiki/Open_source"
-                            >open-source </a
-                        >projects helps me understand and appreciate the
-                        importance of contributing to the open-source community.
-                        Open-source projects plays a significant role in shaping
-                        the technologies we have today, thanks to the
-                        contributions of the individuals around the world.
-                    </li>
-                    <li class="fact">
-                        Lastly but not least, I enjoy designing this site with a
-                        simple looks and feel. However, when it comes to
-                        teamwork or related projects, that's when I showcase my
-                        skills in both frontend and backend development,
-                        depending on the team preferences and the programming
-                        languages and frameworks being used.
-                    </li>
-                </ul>
-                <div class="subheads">Contact Me:</div>
-                <ul>
-                    <li class="fact">
-                        <span class="tag"> Email: </span>
-                        <span>
-                            abdulrahmansahabi559 (at) gmail (dot) com (Yes, I
-                            still check it regularly)
-                        </span>
-                    </li>
-                    <li class="fact">
-                        <span class="tag"> GitHub: </span>
-                        <span>
-                            <a href="https://github.com/abdulsahabi"
-                                >abdulsahabi</a
-                            >
-                        </span>
-                    </li>
-                </ul>
-            </div>
-        </main>
-        <footer>
-            <div class="copyright">&copy; Tc studio 2024</div>
-        </footer>
+  /* -------- hero -------- */
+  .hero{
+    background:
+      linear-gradient(var(--blueprint-deep), var(--blueprint-deep-2)),
+      repeating-linear-gradient(0deg, rgba(255,255,255,0.045) 0 1px, transparent 1px 34px),
+      repeating-linear-gradient(90deg, rgba(255,255,255,0.045) 0 1px, transparent 1px 34px);
+    background-blend-mode:normal;
+    color:var(--paper-off);
+    position:relative;
+    padding:76px 0 64px;
+    overflow:hidden;
+  }
+  .crop{
+    position:absolute; width:22px; height:22px; border:1px solid rgba(233,232,225,0.35);
+  }
+  .crop::before, .crop::after{content:''; position:absolute; background:rgba(233,232,225,0.5);}
+  .crop.tl{top:20px; left:20px; border-right:none; border-bottom:none;}
+  .crop.tr{top:20px; right:20px; border-left:none; border-bottom:none;}
+  .crop.bl{bottom:20px; left:20px; border-right:none; border-top:none;}
+  .crop.br{bottom:20px; right:20px; border-left:none; border-top:none;}
 
-        <script></script>
-    </body>
-</html>
+  .eyebrow{
+    font-family:'IBM Plex Mono',monospace; font-size:12px; letter-spacing:0.14em;
+    text-transform:uppercase; color:#9fb0e8; display:flex; align-items:center; gap:8px;
+    margin-bottom:22px;
+  }
+  .dot{width:7px; height:7px; border-radius:50%; background:#5ec98b; box-shadow:0 0 0 3px rgba(94,201,139,0.18);}
+  .hero h1{
+    font-family:'Space Grotesk',sans-serif; font-weight:700;
+    font-size:clamp(38px, 7vw, 64px); line-height:1.04; letter-spacing:-0.01em;
+    max-width:760px;
+  }
+  .hero h1 em{
+    font-style:normal; color:#8fa4ea;
+  }
+  .hero .role{
+    font-family:'Source Serif 4', serif; font-style:italic; font-size:20px;
+    color:#c9cfe6; margin-top:18px; max-width:560px;
+  }
+  .readout{
+    margin-top:44px; border-top:1px solid rgba(233,232,225,0.18);
+    padding-top:22px;
+    display:grid; grid-template-columns:repeat(3,1fr); gap:18px;
+  }
+  .readout div{font-family:'IBM Plex Mono',monospace; font-size:12px; color:#8890a8;}
+  .readout div b{
+    display:block; font-family:'Space Grotesk',sans-serif; font-size:22px; font-weight:600;
+    color:var(--paper-off); margin-bottom:4px;
+  }
+
+  /* -------- sections -------- */
+  section{padding:72px 0;}
+  .section-head{
+    display:flex; align-items:baseline; justify-content:space-between;
+    border-bottom:1px solid var(--line); padding-bottom:14px; margin-bottom:36px;
+  }
+  .section-head h2{
+    font-family:'Space Grotesk',sans-serif; font-weight:600; font-size:26px;
+  }
+  .section-head .tag{
+    font-family:'IBM Plex Mono',monospace; font-size:12px; color:var(--slate);
+    text-transform:uppercase; letter-spacing:0.08em;
+  }
+
+  .lede{max-width:640px; color:var(--ink); font-size:18px;}
+  .lede + .lede{margin-top:14px;}
+
+  /* -------- project log -------- */
+  .sys{
+    border:1px solid var(--line);
+    background:var(--paper-off);
+    padding:24px 26px;
+    margin-bottom:16px;
+    position:relative;
+    opacity:0; transform:translateY(14px);
+    transition:opacity .5s ease, transform .5s ease;
+  }
+  .sys.in{opacity:1; transform:translateY(0);}
+  .sys-top{display:flex; align-items:flex-start; justify-content:space-between; gap:16px; flex-wrap:wrap;}
+  .sys-id{font-family:'IBM Plex Mono',monospace; font-size:12px; color:var(--blueprint); letter-spacing:0.06em;}
+  .sys h3{font-family:'Space Grotesk',sans-serif; font-size:19px; font-weight:600; margin-top:4px;}
+  .status{
+    font-family:'IBM Plex Mono',monospace; font-size:11px; text-transform:uppercase;
+    letter-spacing:0.08em; padding:4px 9px; border:1px solid currentColor; white-space:nowrap;
+  }
+  .status.shipped{color:var(--blueprint);}
+  .status.active{color:var(--copper);}
+  .sys p{margin-top:12px; color:#33353f; font-size:15.5px; max-width:620px;}
+  .stack-row{margin-top:14px; display:flex; flex-wrap:wrap; gap:8px;}
+  .chip{
+    font-family:'IBM Plex Mono',monospace; font-size:11px; color:var(--slate);
+    border:1px solid var(--line); padding:3px 8px; background:var(--paper);
+  }
+  .more-note{
+    font-family:'IBM Plex Mono',monospace; font-size:13px; color:var(--slate);
+    margin-top:22px; padding-top:18px; border-top:1px dashed var(--line);
+  }
+  .more-note a{color:var(--blueprint); text-decoration:none; border-bottom:1px solid currentColor;}
+
+  /* -------- stack -------- */
+  .stack-grid{
+    display:grid; grid-template-columns:repeat(2,1fr); gap:28px 40px;
+  }
+  .stack-col .k{
+    font-family:'IBM Plex Mono',monospace; font-size:12px; text-transform:uppercase;
+    letter-spacing:0.08em; color:var(--copper); margin-bottom:10px;
+  }
+  .stack-col ul{list-style:none;}
+  .stack-col li{
+    font-family:'Space Grotesk',sans-serif; font-size:16px; padding:7px 0;
+    border-bottom:1px solid var(--line);
+  }
+
+  /* -------- principles -------- */
+  .principles{display:grid; gap:22px;}
+  .principle{display:flex; gap:18px;}
+  .principle .n{
+    font-family:'IBM Plex Mono',monospace; font-size:13px; color:var(--blueprint);
+    padding-top:3px; width:34px; flex-shrink:0;
+  }
+  .principle p{font-size:16.5px; max-width:600px;}
+
+  /* -------- contact / footer -------- */
+  footer{
+    background:var(--blueprint-deep); color:var(--paper-off);
+    padding:64px 0 40px;
+  }
+  footer h2{
+    font-family:'Space Grotesk',sans-serif; font-size:clamp(28px,5vw,42px); font-weight:700;
+    max-width:520px; line-height:1.1;
+  }
+  .contact-grid{
+    margin-top:36px; display:grid; grid-template-columns:repeat(4,1fr); gap:24px;
+    border-top:1px solid rgba(233,232,225,0.18); padding-top:28px;
+  }
+  .contact-grid .k{font-family:'IBM Plex Mono',monospace; font-size:11px; text-transform:uppercase; letter-spacing:0.08em; color:#8890a8; margin-bottom:6px;}
+  .contact-grid a, .contact-grid span{font-family:'Space Grotesk',sans-serif; font-size:16px; text-decoration:none; color:var(--paper-off);}
+  .contact-grid a:hover{color:#8fa4ea;}
+  .foot-bottom{
+    margin-top:48px; padding-top:20px; border-top:1px solid rgba(233,232,225,0.18);
+    display:flex; justify-content:space-between; flex-wrap:wrap; gap:10px;
+    font-family:'IBM Plex Mono',monospace; font-size:12px; color:#6d7590;
+  }
+
+  @media (max-width:640px){
+    .readout{grid-template-columns:1fr 1fr;}
+    .readout div:last-child{grid-column:1 / -1;}
+    .stack-grid{grid-template-columns:1fr;}
+    .contact-grid{grid-template-columns:1fr;}
+    section{padding:52px 0;}
+    .hero{padding:56px 0 44px;}
+  }
+
+  @media (prefers-reduced-motion: reduce){
+    *{transition:none !important; scroll-behavior:auto !important;}
+    .sys{opacity:1; transform:none;}
+  }
+
+  :focus-visible{outline:2px solid var(--blueprint); outline-offset:2px;}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="wrap">
+    <div class="logo">SAHABI<span>.</span>ABDULRAHAMAN</div>
+    <ul>
+      <li><a href="#work">Work</a></li>
+      <li><a href="#stack">Stack</a></li>
+      <li><a href="#contact">Contact</a></li>
+      <li><a href="./resume.pdf" download class="resume-link">Résumé ↓</a></li>
+    </ul>
+  </div>
+</nav>
+
+<header class="hero">
+  <span class="crop tl"></span><span class="crop tr"></span>
+  <span class="crop bl"></span><span class="crop br"></span>
+  <div class="wrap">
+    <div class="eyebrow"><span class="dot"></span>Available for remote work</div>
+    <h1>I build the software that runs behind the counter, <em>not just in front of it.</em></h1>
+    <p class="role">Software engineer in Kebbi State, Nigeria. I write full-stack systems for banks, hospitals, colleges and government offices — plain PHP and MySQL when that's the right call, Laravel and React Native when it isn't.</p>
+    <div class="readout">
+      <div><b>12+</b>systems shipped to real users</div>
+      <div><b>2021–</b>building in production</div>
+      <div><b>PHP · Laravel · Flask · React Native</b>primary stack</div>
+    </div>
+  </div>
+</header>
+
+<section id="work">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Selected systems</h2>
+      <span class="tag">Build log</span>
+    </div>
+    <p class="lede">A working log of production and near-production systems, in the order I built them. Each one solved a specific problem for a specific institution.</p>
+    <br/>
+
+    <div class="sys-list">
+
+      <div class="sys"><div class="sys-top"><div><div class="sys-id">SYS-001</div><h3>NovaPay</h3></div><span class="status shipped">Shipped</span></div>
+        <p>Full-stack digital banking and wallet application built in plain PHP and MySQL, no framework. Accounts, transfers and transaction history, built from scratch.</p>
+        <div class="stack-row"><span class="chip">PHP</span><span class="chip">MySQL</span></div></div>
+
+      <div class="sys"><div class="sys-top"><div><div class="sys-id">SYS-002</div><h3>First Bank — Zuru Branch</h3></div><span class="status shipped">Delivered</span></div>
+        <p>Banking application for a live bank branch, with three separate roles: manager, teller and customer. Delivered and in use.</p>
+        <div class="stack-row"><span class="chip">PHP</span><span class="chip">TailwindCSS</span><span class="chip">MySQL</span></div></div>
+
+      <div class="sys"><div class="sys-top"><div><div class="sys-id">SYS-003</div><h3>AI-Powered Library Management System</h3></div><span class="status shipped">Shipped</span></div>
+        <p>Library system with a PHP/MySQL core and a separate Python-Flask recommendation engine, using collaborative and content-based filtering to suggest titles to readers.</p>
+        <div class="stack-row"><span class="chip">PHP</span><span class="chip">MySQL</span><span class="chip">Python</span><span class="chip">Flask</span></div></div>
+
+      <div class="sys"><div class="sys-top"><div><div class="sys-id">SYS-004</div><h3>ASTMS — Timetable Management System</h3></div><span class="status shipped">Shipped</span></div>
+        <p>University timetable system that treats scheduling as a constraint satisfaction problem, resolving room and lecturer clashes automatically. Built for AFUST Aleiro.</p>
+        <div class="stack-row"><span class="chip">PHP</span><span class="chip">MySQL</span><span class="chip">CSP</span></div></div>
+
+      <div class="sys"><div class="sys-top"><div><div class="sys-id">SYS-005</div><h3>IntelliSummarize</h3></div><span class="status shipped">Shipped</span></div>
+        <p>AI text summarization tool built as a final-year research project, condensing long-form text using a Python/Flask backend.</p>
+        <div class="stack-row"><span class="chip">Python</span><span class="chip">Flask</span><span class="chip">NLP</span></div></div>
+
+      <div class="sys"><div class="sys-top"><div><div class="sys-id">SYS-006</div><h3>Fake News / Clickbait Detector</h3></div><span class="status shipped">Shipped</span></div>
+        <p>Classification system that flags misleading headlines and clickbait patterns in news text.</p>
+        <div class="stack-row"><span class="chip">Python</span><span class="chip">Machine Learning</span></div></div>
+
+      <div class="sys"><div class="sys-top"><div><div class="sys-id">SYS-007</div><h3>InovaPOS</h3></div><span class="status active">Active</span></div>
+        <p>Cloud-based progressive web app for point-of-sale and retail management, with real-time checkout tracking and staff privilege controls. Grew out of an earlier Laravel/Livewire POS with a virtualized product grid, barcode scanning and split-bill checkout.</p>
+        <div class="stack-row"><span class="chip">PWA</span><span class="chip">Laravel</span><span class="chip">Livewire</span><span class="chip">Alpine.js</span></div></div>
+
+      <div class="sys"><div class="sys-top"><div><div class="sys-id">SYS-008</div><h3>Smart Video Compressor</h3></div><span class="status shipped">Shipped</span></div>
+        <p>React Native app that compresses video on-device using FFmpeg, with Zustand for state and AsyncStorage for local persistence.</p>
+        <div class="stack-row"><span class="chip">React Native</span><span class="chip">FFmpeg</span><span class="chip">Zustand</span></div></div>
+
+      <div class="sys"><div class="sys-top"><div><div class="sys-id">SYS-009</div><h3>Nagari College CBT Platform</h3></div><span class="status active">Active</span></div>
+        <p>Full rebrand and architectural overhaul of an existing computer-based testing platform: anti-cheating measures, custom branding and a new landing page. One patch and final packaging still in progress.</p>
+        <div class="stack-row"><span class="chip">PHP</span><span class="chip">MySQL</span></div></div>
+
+      <div class="sys"><div class="sys-top"><div><div class="sys-id">SYS-010</div><h3>Private Cloud Storage System</h3></div><span class="status shipped">Shipped</span></div>
+        <p>Self-hosted file storage system with AES encryption for files at rest.</p>
+        <div class="stack-row"><span class="chip">PHP</span><span class="chip">MySQL</span><span class="chip">AES</span></div></div>
+
+      <div class="sys"><div class="sys-top"><div><div class="sys-id">SYS-011</div><h3>InoGr Works</h3></div><span class="status shipped">Live</span></div>
+        <p>Full-stack platform launched in 2026 under my own studio, InoGr Technologies, based in Kebbi State, Nigeria.</p>
+        <div class="stack-row"><span class="chip">PHP</span><span class="chip">MySQL</span></div></div>
+
+    </div>
+
+    <div class="more-note">+ several more systems (clinic management, asset tracking, alumni mentorship, fee payment) built for FUBK, WUFPBK and AFUSTA — full list on <a href="https://github.com/abdulsahabi" target="_blank" rel="noopener">GitHub</a>.</div>
+  </div>
+</section>
+
+<section id="stack" style="background:var(--paper-2);">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Stack</h2>
+      <span class="tag">What I build with</span>
+    </div>
+    <div class="stack-grid">
+      <div class="stack-col">
+        <div class="k">Languages</div>
+        <ul><li>PHP</li><li>Python</li><li>JavaScript</li></ul>
+      </div>
+      <div class="stack-col">
+        <div class="k">Frameworks</div>
+        <ul><li>Laravel + Livewire</li><li>Flask</li><li>React Native</li></ul>
+      </div>
+      <div class="stack-col">
+        <div class="k">Data & ML</div>
+        <ul><li>MySQL</li><li>Collaborative / content-based filtering</li><li>Applied NLP & classification</li></ul>
+      </div>
+      <div class="stack-col">
+        <div class="k">Tooling</div>
+        <ul><li>TailwindCSS + Alpine.js</li><li>Git</li><li>FFmpeg</li></ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="principles">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>How I work</h2>
+      <span class="tag">Practice</span>
+    </div>
+    <div class="principles">
+      <div class="principle"><div class="n mono">01</div><p>I build for the institution that has to run on the system tomorrow, not for a demo. Most of my work has gone straight into use at a bank branch, a clinic or a college registrar's office.</p></div>
+      <div class="principle"><div class="n mono">02</div><p>I reach for a framework when it earns its weight, and reach for plain PHP and MySQL when it doesn't. NovaPay and the First Bank app are both framework-free by choice, not by limitation.</p></div>
+      <div class="principle"><div class="n mono">03</div><p>Machine learning goes into a product when it changes what the product can do, not because it sounds good in a pitch — recommendation, summarization and classification, each solving one concrete problem.</p></div>
+    </div>
+  </div>
+</section>
+
+<footer id="contact">
+  <div class="wrap">
+    <h2>Building something that needs a full-stack engineer? Let's talk.</h2>
+    <div class="contact-grid">
+      <div><div class="k">Email</div><a href="mailto:abdulrahmansahabi559@gmail.com">abdulrahmansahabi559@gmail.com</a></div>
+      <div><div class="k">GitHub</div><a href="https://github.com/abdulsahabi" target="_blank" rel="noopener">github.com/abdulsahabi</a></div>
+      <div><div class="k">Based in</div><span>Kebbi State, Nigeria — open to remote roles</span></div>
+      <div><div class="k">Résumé</div><a href="./resume.pdf" download>Download PDF ↓</a></div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 Sahabi Abdulrahaman</span>
+      <span>Built with plain HTML, CSS and JS</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  const items = document.querySelectorAll('.sys');
+  const io = new IntersectionObserver((entries)=>{
+    entries.forEach(e=>{
+      if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); }
+    });
+  }, {threshold:0.12});
+  items.forEach(el=>io.observe(el));
+</script>
+
+</body>
+                                                                                                                                   </html>
+                                                                                                                                   
