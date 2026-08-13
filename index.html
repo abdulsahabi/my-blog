@@ -1,3 +1,4 @@
+
 <!doctype html>
 <html lang="en">
 <head>
@@ -221,8 +222,8 @@
     padding:24px 26px;
     margin-bottom:16px;
     position:relative;
-    opacity:0; transform:translateY(14px);
-    transition:opacity .5s ease, transform .5s ease;
+    opacity:0; transform:translateY(8px);
+    transition:opacity .28s ease, transform .28s ease;
   }
   .sys.in{opacity:1; transform:translateY(0);}
   .sys-top{display:flex; align-items:flex-start; justify-content:space-between; gap:16px; flex-wrap:wrap;}
@@ -358,11 +359,11 @@
   <div class="wrap">
     <div class="about">
       <div class="portrait" id="portrait">
-        <img src="public/1691749090501-1.jpg" width="480" height="640" alt="Portrait of Sahabi Abdulrahaman" id="portrait-img" loading="eager" fetchpriority="high" decoding="async" />
+        <img src="public/1691749090501.jpg" width="480" height="640" alt="Portrait of Sahabi Abdulrahaman" id="portrait-img" loading="eager" fetchpriority="high" decoding="async" />
         <div class="cap">Kebbi State, NG</div>
       </div>
       <div class="about-text">
-        <p class="lede">I trained in computer science at Waziri Umaru Federal Polytechnic, Birnin Kebbi, and have spent the years since building production systems for institutions across Northern Nigeria — banks, colleges, hospitals and government offices.</p>
+        <p class="lede">I hold a National Diploma in Computer Science from Waziri Umaru Federal Polytechnic, Birnin Kebbi, and I'm currently pursuing a B.Sc. in Computer Science at Federal University Birnin Kebbi (FUBK). Alongside my studies, I've spent the past few years building production systems for institutions across Northern Nigeria — banks, colleges, hospitals and government offices.</p>
         <p class="lede">My core stack is PHP and MySQL, but I work equally in React, Next.js and React Native depending on what the project needs. I'm most useful on teams that want someone who can take a system from database schema through to shipped interface, without handing pieces off.</p>
       </div>
     </div>
@@ -414,4 +415,117 @@
 
       <div class="sys"><div class="sys-top"><div><div class="sys-id">SYS-009</div><h3>Private Cloud Storage System</h3></div><span class="status shipped">Shipped</span></div>
         <p>Self-hosted file storage system with AES encryption for files at rest.</p>
-        <div class="st
+        <div class="stack-row"><span class="chip">PHP</span><span class="chip">MySQL</span><span class="chip">AES</span></div></div>
+
+      <div class="sys"><div class="sys-top"><div><div class="sys-id">SYS-010</div><h3>InoGr Works</h3></div><span class="status shipped">Live</span></div>
+        <p>Full-stack platform launched in 2026 under my own studio, InoGr Technologies, based in Kebbi State, Nigeria.</p>
+        <div class="stack-row"><span class="chip">PHP</span><span class="chip">MySQL</span></div></div>
+
+    </div>
+
+    <div class="more-note">+ several more systems (clinic management, asset tracking, alumni mentorship, fee payment) built for FUBK, WUFPBK and AFUSTA — full list on <a href="https://github.com/abdulsahabi" target="_blank" rel="noopener">GitHub</a>.</div>
+  </div>
+</section>
+
+<section id="stack" style="background:var(--paper-2);">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Stack</h2>
+      <span class="tag">What I build with</span>
+    </div>
+    <div class="stack-grid">
+      <div class="stack-col">
+        <div class="k">Languages</div>
+        <ul><li>PHP</li><li>Python</li><li>JavaScript</li><li>TypeScript</li></ul>
+      </div>
+      <div class="stack-col">
+        <div class="k">Frameworks</div>
+        <ul><li>React + Next.js</li><li>Node.js</li><li>Laravel + Livewire</li><li>Flask</li><li>React Native</li></ul>
+      </div>
+      <div class="stack-col">
+        <div class="k">Data & ML</div>
+        <ul><li>MySQL</li><li>MongoDB</li><li>Collaborative / content-based filtering</li><li>Applied NLP & classification</li></ul>
+      </div>
+      <div class="stack-col">
+        <div class="k">Tooling</div>
+        <ul><li>TailwindCSS + Alpine.js</li><li>REST APIs + JWT Auth</li><li>Git + Postman</li><li>FFmpeg</li></ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="principles">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>How I work</h2>
+      <span class="tag">Practice</span>
+    </div>
+    <div class="principles">
+      <div class="principle"><div class="n mono">01</div><p>I build for the institution that has to run on the system tomorrow, not for a demo. Most of my work has gone straight into use at a bank branch, a clinic or a college registrar's office.</p></div>
+      <div class="principle"><div class="n mono">02</div><p>I reach for a framework when it earns its weight, and reach for plain PHP and MySQL when it doesn't. NovaPay is framework-free by choice, not by limitation.</p></div>
+      <div class="principle"><div class="n mono">03</div><p>Machine learning goes into a product when it changes what the product can do, not because it sounds good in a pitch — recommendation, summarization and classification, each solving one concrete problem.</p></div>
+    </div>
+  </div>
+</section>
+
+<footer id="contact">
+  <div class="wrap">
+    <h2>Building something that needs a full-stack engineer? Let's talk.</h2>
+    <div class="contact-grid">
+      <div><div class="k">Email</div><a href="mailto:abdulrahmansahabi559@gmail.com">abdulrahmansahabi559@gmail.com</a></div>
+      <div><div class="k">GitHub</div><a href="https://github.com/abdulsahabi" target="_blank" rel="noopener">github.com/abdulsahabi</a></div>
+      <div><div class="k">Based in</div><span>Kebbi State, Nigeria — open to remote roles</span></div>
+      <div><div class="k">Résumé</div><a href="public/My%20updated%20CV.pdf" download>Download PDF ↓</a></div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 Sahabi Abdulrahaman</span>
+      <span>Built with plain HTML, CSS and JS</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  const portraitImg = document.getElementById('portrait-img');
+  const portraitBox = document.getElementById('portrait');
+  function markLoaded(){ portraitBox.classList.add('loaded'); }
+  if(portraitImg.complete && portraitImg.naturalWidth > 0){
+    markLoaded();
+  } else {
+    portraitImg.addEventListener('load', markLoaded);
+    portraitImg.addEventListener('error', markLoaded);
+  }
+
+  const menuBtn = document.getElementById('menu-btn');
+  const navList = document.getElementById('nav-list');
+  const scrim = document.getElementById('scrim');
+
+  function closeMenu(){
+    navList.classList.remove('open');
+    scrim.classList.remove('show');
+    menuBtn.setAttribute('aria-expanded','false');
+    document.body.style.overflow='';
+  }
+  function openMenu(){
+    navList.classList.add('open');
+    scrim.classList.add('show');
+    menuBtn.setAttribute('aria-expanded','true');
+    document.body.style.overflow='hidden';
+  }
+  menuBtn.addEventListener('click', ()=>{
+    navList.classList.contains('open') ? closeMenu() : openMenu();
+  });
+  scrim.addEventListener('click', closeMenu);
+  navList.querySelectorAll('a').forEach(a => a.addEventListener('click', closeMenu));
+  window.addEventListener('resize', ()=>{ if(window.innerWidth > 760) closeMenu(); });
+
+  const items = document.querySelectorAll('.sys');
+  const io = new IntersectionObserver((entries)=>{
+    entries.forEach(e=>{
+      if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); }
+    });
+  }, {threshold:0.01, rootMargin:'0px 0px -10% 0px'});
+  items.forEach(el=>io.observe(el));
+</script>
+
+</body>
+</html>
