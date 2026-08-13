@@ -58,7 +58,7 @@
   }
   nav .logo{font-family:'Space Grotesk',sans-serif; font-weight:700; font-size:15px; letter-spacing:0.02em;}
   nav .logo span{color:var(--blueprint);}
-  nav ul{display:flex; gap:26px; list-style:none;}
+  nav ul{display:flex; align-items:center; gap:26px; list-style:none;}
   nav a{
     font-family:'IBM Plex Mono',monospace; font-size:12px; text-decoration:none;
     text-transform:uppercase; letter-spacing:0.08em; color:var(--slate);
@@ -67,6 +67,42 @@
   nav a:hover{color:var(--blueprint);}
   nav a.resume-link{color:var(--blueprint); border:1px solid var(--blueprint); padding:5px 10px;}
   nav a.resume-link:hover{background:var(--blueprint); color:var(--paper-off);}
+
+  .menu-btn{
+    display:none; flex-direction:column; justify-content:center; align-items:center;
+    gap:5px; width:36px; height:36px; background:none; border:1px solid var(--line);
+    cursor:pointer; padding:0;
+  }
+  .menu-btn span{
+    display:block; width:16px; height:1.5px; background:var(--ink); transition:transform .2s, opacity .2s;
+  }
+  .menu-btn[aria-expanded="true"] span:nth-child(1){transform:translateY(6.5px) rotate(45deg);}
+  .menu-btn[aria-expanded="true"] span:nth-child(2){opacity:0;}
+  .menu-btn[aria-expanded="true"] span:nth-child(3){transform:translateY(-6.5px) rotate(-45deg);}
+
+  .scrim{
+    display:none; position:fixed; inset:0; background:rgba(12,19,48,0.45);
+    z-index:59; opacity:0; transition:opacity .25s ease;
+  }
+  .scrim.show{display:block; opacity:1;}
+
+  @media (max-width:760px){
+    nav ul{
+      position:fixed; top:0; right:0; height:100vh; width:min(78vw, 300px);
+      background:var(--paper-off); z-index:60;
+      flex-direction:column; align-items:flex-start; justify-content:flex-start;
+      gap:0; padding:80px 28px 28px;
+      transform:translateX(100%); transition:transform .28s ease;
+      box-shadow:-8px 0 24px rgba(0,0,0,0.12);
+      border-left:1px solid var(--line);
+    }
+    nav ul.open{transform:translateX(0);}
+    nav ul li{width:100%; border-bottom:1px solid var(--line);}
+    nav ul li a{display:block; padding:16px 2px; font-size:13px;}
+    nav a.resume-link{border:none; padding:16px 2px; text-align:left;}
+    nav a.resume-link:hover{background:none; color:var(--blueprint);}
+    .menu-btn{display:flex;}
+  }
 
   /* -------- hero -------- */
   .hero{
@@ -118,7 +154,29 @@
     color:var(--paper-off); margin-bottom:4px;
   }
 
-  /* -------- sections -------- */
+  /* -------- about / portrait -------- */
+  .about{
+    display:grid; grid-template-columns:200px 1fr; gap:40px; align-items:start;
+  }
+  .portrait{
+    position:relative; aspect-ratio:4/5; overflow:hidden;
+    border:1px solid var(--line); background:var(--paper-2);
+  }
+  .portrait img{
+    width:100%; height:100%; object-fit:cover; display:block;
+    filter:grayscale(1) contrast(1.08);
+  }
+  .portrait::after{
+    content:''; position:absolute; inset:0;
+    box-shadow:inset 0 0 0 1px rgba(0,0,0,0.06);
+  }
+  .portrait .cap{
+    position:absolute; bottom:0; left:0; right:0;
+    background:rgba(17,26,61,0.85); color:var(--paper-off);
+    font-family:'IBM Plex Mono',monospace; font-size:10px; letter-spacing:0.06em;
+    text-transform:uppercase; padding:6px 8px;
+  }
+  .about-text p{margin-bottom:14px; max-width:560px;}
   section{padding:72px 0;}
   .section-head{
     display:flex; align-items:baseline; justify-content:space-between;
@@ -212,13 +270,25 @@
     font-family:'IBM Plex Mono',monospace; font-size:12px; color:#6d7590;
   }
 
-  @media (max-width:640px){
-    .readout{grid-template-columns:1fr 1fr;}
+  @media (max-width:760px){
+    .wrap{padding:0 20px;}
+    .about{grid-template-columns:96px 1fr; gap:18px;}
+    .readout{grid-template-columns:1fr 1fr; gap:16px 14px;}
     .readout div:last-child{grid-column:1 / -1;}
-    .stack-grid{grid-template-columns:1fr;}
-    .contact-grid{grid-template-columns:1fr;}
-    section{padding:52px 0;}
-    .hero{padding:56px 0 44px;}
+    .stack-grid{grid-template-columns:1fr; gap:24px;}
+    .contact-grid{grid-template-columns:1fr; gap:20px;}
+    .section-head{flex-direction:column; align-items:flex-start; gap:6px;}
+    .sys{padding:18px 18px;}
+    .sys-top{flex-direction:column; align-items:flex-start; gap:8px;}
+    section{padding:48px 0;}
+    .hero{padding:52px 0 40px;}
+    .hero h1{font-size:clamp(30px,8vw,40px);}
+    footer{padding:48px 0 32px;}
+  }
+
+  @media (max-width:420px){
+    .about{grid-template-columns:1fr; }
+    .portrait{max-width:160px;}
   }
 
   @media (prefers-reduced-motion: reduce){
@@ -234,14 +304,19 @@
 <nav>
   <div class="wrap">
     <div class="logo">SAHABI<span>.</span>ABDULRAHAMAN</div>
-    <ul>
+    <ul id="nav-list">
+      <li><a href="#about">About</a></li>
       <li><a href="#work">Work</a></li>
       <li><a href="#stack">Stack</a></li>
       <li><a href="#contact">Contact</a></li>
       <li><a href="./resume.pdf" download class="resume-link">Résumé ↓</a></li>
     </ul>
+    <button class="menu-btn" id="menu-btn" aria-label="Toggle menu" aria-expanded="false" aria-controls="nav-list">
+      <span></span><span></span><span></span>
+    </button>
   </div>
 </nav>
+<div class="scrim" id="scrim"></div>
 
 <header class="hero">
   <span class="crop tl"></span><span class="crop tr"></span>
@@ -253,10 +328,25 @@
     <div class="readout">
       <div><b>12+</b>systems shipped to real users</div>
       <div><b>2021–</b>building in production</div>
-      <div><b>PHP · Laravel · Flask · React Native</b>primary stack</div>
+      <div><b>PHP · Laravel · React/Next.js · Flask</b>primary stack</div>
     </div>
   </div>
 </header>
+
+<section id="about">
+  <div class="wrap">
+    <div class="about">
+      <div class="portrait">
+        <img src="public/1691749090501.jpg" alt="Portrait of Sahabi Abdulrahaman" />
+        <div class="cap">Kebbi State, NG</div>
+      </div>
+      <div class="about-text">
+        <p class="lede">I trained in computer science at Waziri Umaru Federal Polytechnic, Birnin Kebbi, and have spent the years since building production systems for institutions across Northern Nigeria — banks, colleges, hospitals and government offices.</p>
+        <p class="lede">My core stack is PHP and MySQL, but I work equally in React, Next.js and React Native depending on what the project needs. I'm most useful on teams that want someone who can take a system from database schema through to shipped interface, without handing pieces off.</p>
+      </div>
+    </div>
+  </div>
+</section>
 
 <section id="work">
   <div class="wrap">
@@ -273,43 +363,39 @@
         <p>Full-stack digital banking and wallet application built in plain PHP and MySQL, no framework. Accounts, transfers and transaction history, built from scratch.</p>
         <div class="stack-row"><span class="chip">PHP</span><span class="chip">MySQL</span></div></div>
 
-      <div class="sys"><div class="sys-top"><div><div class="sys-id">SYS-002</div><h3>First Bank — Zuru Branch</h3></div><span class="status shipped">Delivered</span></div>
-        <p>Banking application for a live bank branch, with three separate roles: manager, teller and customer. Delivered and in use.</p>
-        <div class="stack-row"><span class="chip">PHP</span><span class="chip">TailwindCSS</span><span class="chip">MySQL</span></div></div>
-
-      <div class="sys"><div class="sys-top"><div><div class="sys-id">SYS-003</div><h3>AI-Powered Library Management System</h3></div><span class="status shipped">Shipped</span></div>
+      <div class="sys"><div class="sys-top"><div><div class="sys-id">SYS-002</div><h3>AI-Powered Library Management System</h3></div><span class="status shipped">Shipped</span></div>
         <p>Library system with a PHP/MySQL core and a separate Python-Flask recommendation engine, using collaborative and content-based filtering to suggest titles to readers.</p>
         <div class="stack-row"><span class="chip">PHP</span><span class="chip">MySQL</span><span class="chip">Python</span><span class="chip">Flask</span></div></div>
 
-      <div class="sys"><div class="sys-top"><div><div class="sys-id">SYS-004</div><h3>ASTMS — Timetable Management System</h3></div><span class="status shipped">Shipped</span></div>
+      <div class="sys"><div class="sys-top"><div><div class="sys-id">SYS-003</div><h3>ASTMS — Timetable Management System</h3></div><span class="status shipped">Shipped</span></div>
         <p>University timetable system that treats scheduling as a constraint satisfaction problem, resolving room and lecturer clashes automatically. Built for AFUST Aleiro.</p>
         <div class="stack-row"><span class="chip">PHP</span><span class="chip">MySQL</span><span class="chip">CSP</span></div></div>
 
-      <div class="sys"><div class="sys-top"><div><div class="sys-id">SYS-005</div><h3>IntelliSummarize</h3></div><span class="status shipped">Shipped</span></div>
+      <div class="sys"><div class="sys-top"><div><div class="sys-id">SYS-004</div><h3>IntelliSummarize</h3></div><span class="status shipped">Shipped</span></div>
         <p>AI text summarization tool built as a final-year research project, condensing long-form text using a Python/Flask backend.</p>
         <div class="stack-row"><span class="chip">Python</span><span class="chip">Flask</span><span class="chip">NLP</span></div></div>
 
-      <div class="sys"><div class="sys-top"><div><div class="sys-id">SYS-006</div><h3>Fake News / Clickbait Detector</h3></div><span class="status shipped">Shipped</span></div>
+      <div class="sys"><div class="sys-top"><div><div class="sys-id">SYS-005</div><h3>Fake News / Clickbait Detector</h3></div><span class="status shipped">Shipped</span></div>
         <p>Classification system that flags misleading headlines and clickbait patterns in news text.</p>
         <div class="stack-row"><span class="chip">Python</span><span class="chip">Machine Learning</span></div></div>
 
-      <div class="sys"><div class="sys-top"><div><div class="sys-id">SYS-007</div><h3>InovaPOS</h3></div><span class="status active">Active</span></div>
+      <div class="sys"><div class="sys-top"><div><div class="sys-id">SYS-006</div><h3>InovaPOS</h3></div><span class="status active">Active</span></div>
         <p>Cloud-based progressive web app for point-of-sale and retail management, with real-time checkout tracking and staff privilege controls. Grew out of an earlier Laravel/Livewire POS with a virtualized product grid, barcode scanning and split-bill checkout.</p>
         <div class="stack-row"><span class="chip">PWA</span><span class="chip">Laravel</span><span class="chip">Livewire</span><span class="chip">Alpine.js</span></div></div>
 
-      <div class="sys"><div class="sys-top"><div><div class="sys-id">SYS-008</div><h3>Smart Video Compressor</h3></div><span class="status shipped">Shipped</span></div>
+      <div class="sys"><div class="sys-top"><div><div class="sys-id">SYS-007</div><h3>Smart Video Compressor</h3></div><span class="status shipped">Shipped</span></div>
         <p>React Native app that compresses video on-device using FFmpeg, with Zustand for state and AsyncStorage for local persistence.</p>
         <div class="stack-row"><span class="chip">React Native</span><span class="chip">FFmpeg</span><span class="chip">Zustand</span></div></div>
 
-      <div class="sys"><div class="sys-top"><div><div class="sys-id">SYS-009</div><h3>Nagari College CBT Platform</h3></div><span class="status active">Active</span></div>
+      <div class="sys"><div class="sys-top"><div><div class="sys-id">SYS-008</div><h3>Nagari College CBT Platform</h3></div><span class="status active">Active</span></div>
         <p>Full rebrand and architectural overhaul of an existing computer-based testing platform: anti-cheating measures, custom branding and a new landing page. One patch and final packaging still in progress.</p>
         <div class="stack-row"><span class="chip">PHP</span><span class="chip">MySQL</span></div></div>
 
-      <div class="sys"><div class="sys-top"><div><div class="sys-id">SYS-010</div><h3>Private Cloud Storage System</h3></div><span class="status shipped">Shipped</span></div>
+      <div class="sys"><div class="sys-top"><div><div class="sys-id">SYS-009</div><h3>Private Cloud Storage System</h3></div><span class="status shipped">Shipped</span></div>
         <p>Self-hosted file storage system with AES encryption for files at rest.</p>
         <div class="stack-row"><span class="chip">PHP</span><span class="chip">MySQL</span><span class="chip">AES</span></div></div>
 
-      <div class="sys"><div class="sys-top"><div><div class="sys-id">SYS-011</div><h3>InoGr Works</h3></div><span class="status shipped">Live</span></div>
+      <div class="sys"><div class="sys-top"><div><div class="sys-id">SYS-010</div><h3>InoGr Works</h3></div><span class="status shipped">Live</span></div>
         <p>Full-stack platform launched in 2026 under my own studio, InoGr Technologies, based in Kebbi State, Nigeria.</p>
         <div class="stack-row"><span class="chip">PHP</span><span class="chip">MySQL</span></div></div>
 
@@ -326,66 +412,4 @@
       <span class="tag">What I build with</span>
     </div>
     <div class="stack-grid">
-      <div class="stack-col">
-        <div class="k">Languages</div>
-        <ul><li>PHP</li><li>Python</li><li>JavaScript</li></ul>
-      </div>
-      <div class="stack-col">
-        <div class="k">Frameworks</div>
-        <ul><li>Laravel + Livewire</li><li>Flask</li><li>React Native</li></ul>
-      </div>
-      <div class="stack-col">
-        <div class="k">Data & ML</div>
-        <ul><li>MySQL</li><li>Collaborative / content-based filtering</li><li>Applied NLP & classification</li></ul>
-      </div>
-      <div class="stack-col">
-        <div class="k">Tooling</div>
-        <ul><li>TailwindCSS + Alpine.js</li><li>Git</li><li>FFmpeg</li></ul>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section id="principles">
-  <div class="wrap">
-    <div class="section-head">
-      <h2>How I work</h2>
-      <span class="tag">Practice</span>
-    </div>
-    <div class="principles">
-      <div class="principle"><div class="n mono">01</div><p>I build for the institution that has to run on the system tomorrow, not for a demo. Most of my work has gone straight into use at a bank branch, a clinic or a college registrar's office.</p></div>
-      <div class="principle"><div class="n mono">02</div><p>I reach for a framework when it earns its weight, and reach for plain PHP and MySQL when it doesn't. NovaPay and the First Bank app are both framework-free by choice, not by limitation.</p></div>
-      <div class="principle"><div class="n mono">03</div><p>Machine learning goes into a product when it changes what the product can do, not because it sounds good in a pitch — recommendation, summarization and classification, each solving one concrete problem.</p></div>
-    </div>
-  </div>
-</section>
-
-<footer id="contact">
-  <div class="wrap">
-    <h2>Building something that needs a full-stack engineer? Let's talk.</h2>
-    <div class="contact-grid">
-      <div><div class="k">Email</div><a href="mailto:abdulrahmansahabi559@gmail.com">abdulrahmansahabi559@gmail.com</a></div>
-      <div><div class="k">GitHub</div><a href="https://github.com/abdulsahabi" target="_blank" rel="noopener">github.com/abdulsahabi</a></div>
-      <div><div class="k">Based in</div><span>Kebbi State, Nigeria — open to remote roles</span></div>
-      <div><div class="k">Résumé</div><a href="./resume.pdf" download>Download PDF ↓</a></div>
-    </div>
-    <div class="foot-bottom">
-      <span>© 2026 Sahabi Abdulrahaman</span>
-      <span>Built with plain HTML, CSS and JS</span>
-    </div>
-  </div>
-</footer>
-
-<script>
-  const items = document.querySelectorAll('.sys');
-  const io = new IntersectionObserver((entries)=>{
-    entries.forEach(e=>{
-      if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); }
-    });
-  }, {threshold:0.12});
-  items.forEach(el=>io.observe(el));
-</script>
-
-</body>
-                                                                                                                                   </html>
-                                                                                                                                   
+      <div class="st
