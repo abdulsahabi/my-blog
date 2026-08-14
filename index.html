@@ -240,10 +240,14 @@
     padding:24px 26px;
     margin-bottom:16px;
     position:relative;
-    opacity:0; transform:translateY(8px);
-    transition:opacity .28s ease, transform .28s ease;
+    animation:sysIn .4s ease both;
+    animation-timeline:view();
+    animation-range:entry 0% cover 20%;
   }
-  .sys.in{opacity:1; transform:translateY(0);}
+  @keyframes sysIn{
+    from{opacity:0; transform:translateY(8px);}
+    to{opacity:1; transform:translateY(0);}
+  }
   .sys-top{display:flex; align-items:flex-start; justify-content:space-between; gap:16px; flex-wrap:wrap;}
   .sys-id{font-family:ui-monospace, SFMono-Regular, 'JetBrains Mono', Menlo, Consolas, monospace; font-size:12px; color:var(--blueprint); letter-spacing:0.06em;}
   .sys h3{font-family:'Space Grotesk',sans-serif; font-size:19px; font-weight:600; margin-top:4px;}
@@ -333,7 +337,7 @@
 
   @media (prefers-reduced-motion: reduce){
     *{transition:none !important; scroll-behavior:auto !important;}
-    .sys{opacity:1; transform:none;}
+    .sys{opacity:1; transform:none; animation:none;}
   }
 
   :focus-visible{outline:2px solid var(--blueprint); outline-offset:2px;}
@@ -435,4 +439,4 @@
 
       <div class="sys"><div class="sys-top"><div><div class="sys-id">SYS-003</div><h3>ASTMS — Timetable Management System</h3></div><span class="status shipped">Shipped</span></div>
         <p>University timetable system that treats scheduling as a constraint satisfaction problem, resolving room and lecturer clashes automatically. Built for AFUST Aleiro.</p>
-        <div class="stack-row"><span class="chip">PHP</span><span class="chip">MySQL</span><spa
+ 
